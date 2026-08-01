@@ -1,3 +1,5 @@
+import ThemeToggle from "./components/ThemeToggle";
+
 const projects = [
   {
     title: "Fitrack",
@@ -55,20 +57,25 @@ function ArrowIcon() {
 export default function Home() {
   return (
     <main>
-      <header className="nav shell">
-        <a className="brand" href="#top" aria-label="Shashank H D, home">
-          <span className="prompt">~/</span>shashank
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-        </nav>
-        <a className="navCta" href="mailto:hdshashankgowda@gmail.com">Let&apos;s talk</a>
+      <header className="siteHeader">
+        <div className="nav shell">
+          <a className="brand" href="#top" aria-label="Return to the top of the page">
+            <span className="prompt">~/</span>shashank
+          </a>
+          <nav aria-label="Primary navigation">
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+          </nav>
+          <div className="navActions">
+            <ThemeToggle />
+            <a className="navCta" href="mailto:hdshashankgowda@gmail.com">Let&apos;s talk</a>
+          </div>
+        </div>
       </header>
 
       <section className="hero shell" id="top">
-        <div className="status"><span /> Open to software engineering roles</div>
+        <div className="status"><span className="statusDot" /> Open to software engineering roles</div>
         <p className="kicker"><span>01.</span> Hello, I&apos;m Shashank.</p>
         <h1>I turn curiosity into<br /><em>working software.</em></h1>
         <p className="heroCopy">
@@ -80,15 +87,6 @@ export default function Home() {
             Download résumé <span aria-hidden="true">↓</span>
           </a>
           <a className="button secondary" href="#projects">Explore my work <span aria-hidden="true">→</span></a>
-        </div>
-        <div className="terminal" aria-label="A short introduction in terminal style">
-          <div className="terminalBar"><i /><i /><i /><span>shashank — profile</span></div>
-          <div className="terminalBody">
-            <p><b>$</b> whoami</p>
-            <p className="output">recent graduate · software engineer · lifelong learner</p>
-            <p><b>$</b> current_focus</p>
-            <p className="output">building strong fundamentals and dependable web experiences<span className="cursor" /></p>
-          </div>
         </div>
       </section>
 
