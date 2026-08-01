@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+.vercel
+*.log
+.DS_Store
+1NH22IS154_SHASHANK H D.pdf
