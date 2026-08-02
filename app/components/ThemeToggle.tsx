@@ -33,7 +33,7 @@ function MoonIcon() {
   );
 }
 
-export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
+export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
 
   return (
     <button
-      className={`theme-control group ${compact ? "theme-control--wide" : ""}`}
+      className="theme-control group"
       type="button"
       role="switch"
       aria-checked={theme === "light"}
@@ -59,7 +59,6 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
       <span className="transition-transform duration-200 group-hover:rotate-12" aria-hidden="true">
         {theme === "dark" ? <MoonIcon /> : <SunIcon />}
       </span>
-      {compact && <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>}
     </button>
   );
 }
