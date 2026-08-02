@@ -875,6 +875,78 @@ button { font: inherit; }
 
 .projects-view-all { width: fit-content; min-width: 210px; margin: 28px 0 0 auto; }
 
+/* Projects archive */
+.projects-page { background: transparent; }
+
+.projects-archive-intro,
+.projects-archive {
+  width: auto;
+  margin-inline: var(--page-gutter);
+  border-inline: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.projects-archive-intro {
+  position: relative;
+  min-height: min(650px, calc(100svh - 76px));
+  display: grid;
+  align-content: center;
+  padding: clamp(76px, 9vw, 128px) clamp(24px, 7.4vw, 94px);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.projects-archive-intro::after {
+  content: "WORK";
+  position: absolute;
+  right: -.03em;
+  bottom: -.2em;
+  color: transparent;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(130px, 25vw, 360px);
+  line-height: 1;
+  letter-spacing: -.045em;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--blue) 18%, transparent);
+  pointer-events: none;
+}
+
+.projects-archive-count {
+  position: absolute;
+  top: clamp(34px, 5vw, 64px);
+  right: clamp(24px, 7.4vw, 94px);
+  margin: 0;
+  color: var(--signal);
+  font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.projects-archive-intro h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
+  font-size: clamp(54px, 7vw, 100px);
+  font-weight: 900;
+  line-height: .86;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+
+.projects-archive-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: clamp(34px, 4vw, 52px) 0 0 clamp(0px, 10vw, 150px);
+  padding-left: 22px;
+  border-left: 7px solid var(--signal);
+  color: var(--muted);
+  font: clamp(17px, 1.7vw, 22px)/1.55 Georgia, "Times New Roman", serif;
+}
+
+.projects-archive { padding: clamp(68px, 8vw, 104px) clamp(24px, 5.8vw, 74px) clamp(78px, 9vw, 120px); border-bottom: 1px solid var(--rule); }
+
 /* Connect */
 .connect-section {
   width: auto;
@@ -1435,6 +1507,14 @@ button { font: inherit; }
   .project-media video,
   .project-video-placeholder { min-height: 248px; }
   .projects-view-all { width: 100%; }
+
+  .projects-archive-intro,
+  .projects-archive { width: 100%; margin-inline: 0; border-inline: 0; }
+  .projects-archive-intro { min-height: calc(100svh - 68px); padding: 76px 16px 64px; }
+  .projects-archive-count { top: 24px; right: 16px; }
+  .projects-archive-intro h1 { font-size: clamp(45px, 13.4vw, 64px); }
+  .projects-archive-copy { margin-left: 0; padding-left: 15px; border-left-width: 5px; font-size: 16px; }
+  .projects-archive { padding: 68px 16px 76px; }
 
   .connect-section {
     width: 100%;
