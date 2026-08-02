@@ -17,7 +17,7 @@ import {
   siTypescript,
   type SimpleIcon,
 } from "simple-icons";
-import { SkillsMarquee } from "./SkillsMarquee";
+import { Logos22, type LogosDoubleRowStaticLogo } from "./Logos22";
 
 const skills: ReadonlyArray<{ name: string; icon: SimpleIcon }> = [
   { name: "Python", icon: siPython },
@@ -39,37 +39,21 @@ const skills: ReadonlyArray<{ name: string; icon: SimpleIcon }> = [
   { name: "Linux", icon: siLinux },
 ] as const;
 
-function SkillSequence({ duplicate = false }: { duplicate?: boolean }) {
-  return (
-    <ul className="skills-sequence" aria-hidden={duplicate || undefined}>
-      {skills.map((skill) => (
-        <li className="skill-item" key={skill.name}>
-          <span className="skill-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="img">
-              <path d={skill.icon.path} />
-            </svg>
-          </span>
-          <span>{skill.name}</span>
-        </li>
-      ))}
-    </ul>
-  );
+function iconSource(icon: SimpleIcon) {
+  return `data:image/svg+xml,${encodeURIComponent(icon.svg)}`;
 }
+
+const logos: LogosDoubleRowStaticLogo[] = skills.map((skill) => ({
+  src: iconSource(skill.icon),
+  alt: skill.name,
+  className: "skills-logo-image",
+}));
 
 export function Skills() {
   return (
     <section className="skills-section" id="skills" aria-labelledby="skills-title">
       <h2 className="visually-hidden" id="skills-title">Skills and tools</h2>
-      <div
-        className="skills-marquee"
-        tabIndex={0}
-        aria-label="Skills and tools. Pause the moving list by focusing it, or scroll horizontally."
-      >
-        <SkillsMarquee>
-          <SkillSequence />
-          <SkillSequence duplicate />
-        </SkillsMarquee>
-      </div>
+      <Logos22 topRow={logos.slice(0, 6)} bottomRow={logos.slice(6)} />
     </section>
   );
 }
