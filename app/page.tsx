@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Experience } from "./components/Experience";
 
 function DownloadIcon() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Experience />
     </main>
   );
 }
