@@ -956,7 +956,7 @@ button { font: inherit; }
 
 .connect-wordmark {
   width: 100%;
-  margin: clamp(36px, 5.4vw, 73px) 0 -.085em;
+  margin: clamp(100px, 15vw, 250px) 0 -.085em;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -1210,7 +1210,6 @@ button { font: inherit; }
   .connect-hire { font-size: 30px; }
   .connect-direct p { font-size: 15px; }
   .connect-wordmark {
-    margin-top: 29px;
     display: block;
     font-size: clamp(68px, 24vw, 116px);
     line-height: .76;
