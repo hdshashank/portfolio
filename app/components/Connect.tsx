@@ -1,9 +1,9 @@
+import { Footer } from "./Footer";
+
 const emailHref =
   "mailto:hdshashankgowda@gmail.com?subject=Software%20Engineering%20Opportunity";
 
 export function Connect() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <>
       <section className="connect-section" id="connect" aria-labelledby="connect-title">
@@ -32,9 +32,7 @@ export function Connect() {
         </p>
       </section>
 
-      <footer className="site-footer">
-        <p>© {currentYear} Shashank H D</p>
-      </footer>
+      <Footer />
     </>
   );
 }
