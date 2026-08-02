@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { FeaturedProjects } from "./components/FeaturedProjects";
@@ -12,23 +11,10 @@ function DownloadIcon() {
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 18 18" className="hero-action-icon">
-      <path d="M4 14 14 4M6 4h8v8" />
-    </svg>
-  );
-}
-
 export default function Home() {
   return (
     <main id="main-content">
       <section className="portfolio-hero" aria-labelledby="hero-title">
-        <div className="hero-status">
-          <span className="hero-status-dot" aria-hidden="true" />
-          <span>Available for software engineering roles</span>
-        </div>
-
         <div className="hero-body">
           <p className="hero-role">Software engineer · Bengaluru, India</p>
           <h1 id="hero-title" className="hero-title">
@@ -43,15 +29,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hero-actions" aria-label="Profile actions">
+          <div className="hero-actions">
             <a className="hero-action hero-action--primary" href="/resume.pdf" download>
               <span>Download résumé</span>
               <DownloadIcon />
             </a>
-            <Link className="hero-action" href="/profile">
-              <span>Explore my profile</span>
-              <ArrowIcon />
-            </Link>
           </div>
         </div>
       </section>
