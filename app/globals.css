@@ -590,7 +590,11 @@ button { font: inherit; }
   transition: scale 220ms ease;
 }
 
+.project-row:hover,
+.project-row:has(:focus-visible),
 .project-row--active { background: var(--raised); }
+.project-row:hover::before,
+.project-row:has(:focus-visible)::before,
 .project-row--active::before { scale: 1; }
 
 .project-trigger {
@@ -626,6 +630,8 @@ button { font: inherit; }
   transition: color 220ms ease, translate 320ms cubic-bezier(.22, 1, .36, 1);
 }
 
+.project-row:hover .project-trigger-title,
+.project-row:has(:focus-visible) .project-trigger-title,
 .project-row--active .project-trigger-title { color: var(--blue); translate: 2px 0; }
 
 .project-stack {

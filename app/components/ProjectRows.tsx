@@ -48,59 +48,40 @@ function DetailGroup({ label, points }: { label: string; points: string[] }) {
 
 export function ProjectRows({ projects }: { projects: Project[] }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [previewId, setPreviewId] = useState<string | null>(null);
-  const hoverExitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const activeId = previewId ?? selectedId;
+  const listRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => () => {
-    if (hoverExitTimer.current) clearTimeout(hoverExitTimer.current);
+  useEffect(() => {
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (listRef.current && !listRef.current.contains(event.target as Node)) setSelectedId(null);
+    };
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => document.removeEventListener("pointerdown", closeOnOutsideClick);
   }, []);
-
-  const previewProject = (id: string) => {
-    if (hoverExitTimer.current) clearTimeout(hoverExitTimer.current);
-    setPreviewId(id);
-  };
-
-  const endPreview = () => {
-    if (hoverExitTimer.current) clearTimeout(hoverExitTimer.current);
-    hoverExitTimer.current = setTimeout(() => setPreviewId(null), 90);
-  };
 
   return (
     <div
+      ref={listRef}
       className="project-list"
       onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          setSelectedId(null);
-          setPreviewId(null);
-        }
+        if (event.key === "Escape") setSelectedId(null);
       }}
     >
       {projects.map((project, index) => {
-        const isActive = project.id === activeId;
-        const isSelected = project.id === selectedId;
+        const isActive = project.id === selectedId;
         const panelId = `${project.id}-details`;
 
         return (
           <article
             className={`project-row${isActive ? " project-row--active" : ""}`}
             key={project.id}
-            onMouseEnter={() => previewProject(project.id)}
-            onMouseLeave={endPreview}
-            onFocus={() => setPreviewId(project.id)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setPreviewId(null);
-            }}
           >
             <button
               className="project-trigger"
               type="button"
               aria-expanded={isActive}
               aria-controls={panelId}
-              onClick={() => {
-                setSelectedId(isSelected ? null : project.id);
-                setPreviewId(null);
-              }}
+              onClick={() => setSelectedId(isActive ? null : project.id)}
             >
               <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
               <span className="project-trigger-title">{project.title}</span>
