@@ -3,6 +3,10 @@
 
 :root {
   --page-gutter: max(24px, calc((100vw - 1280px) / 2));
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
+  --heading-page-size: clamp(54px, 7.4vw, 106px);
+  --heading-section-size: clamp(38px, 4.7vw, 66px);
+  --heading-content-size: clamp(31px, 4vw, 52px);
   --paper: #11171c;
   --raised: #182027;
   --ink: #edf2f4;
@@ -220,10 +224,10 @@ button { font: inherit; }
 .hero-title {
   margin: 0;
   max-width: 1130px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(40px, 7.4vw, 110px);
+  font-family: var(--font-display);
+  font-size: var(--heading-page-size);
   font-weight: 900;
-  line-height: .79;
+  line-height: .86;
   letter-spacing: -.035em;
   text-transform: uppercase;
 }
@@ -310,6 +314,35 @@ button { font: inherit; }
 .hero-action:hover .hero-action-icon { translate: 2px -2px; }
 .hero-action--primary:hover .hero-action-icon { translate: 0 2px; }
 
+.hero-scroll-cue {
+  position: absolute;
+  bottom: clamp(18px, 3vh, 30px);
+  left: 50%;
+  width: 44px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  translate: -50% 0;
+  transition: color 160ms ease;
+}
+
+.hero-scroll-cue:hover { color: var(--signal); }
+
+.hero-scroll-icon {
+  width: 24px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  animation: hero-scroll-hint 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-hint {
+  0%, 100% { translate: 0 -3px; }
+  50% { translate: 0 4px; }
+}
+
 /* Experience */
 .experience-section {
   width: auto;
@@ -340,11 +373,11 @@ button { font: inherit; }
 .experience-section-heading h2 {
   max-width: 760px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(35px, 4.1vw, 58px);
+  font-family: var(--font-display);
+  font-size: var(--heading-section-size);
   font-weight: 900;
   line-height: .9;
-  letter-spacing: -.025em;
+  letter-spacing: -.03em;
   text-transform: uppercase;
 }
 
@@ -437,17 +470,18 @@ button { font: inherit; }
 }
 .experience-detail h3 {
   margin: 0;
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  font-size: clamp(31px, 4vw, 52px);
-  line-height: .95;
-  letter-spacing: -.035em;
+  font-family: var(--font-display);
+  font-size: var(--heading-content-size);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: -.03em;
   text-transform: uppercase;
 }
 .experience-mobile-label { display: none; }
 .experience-date {
   margin: 3px 0 0;
   color: var(--muted);
-  font: 600 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 800 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
   letter-spacing: .07em;
   text-align: right;
   text-transform: uppercase;
@@ -555,10 +589,10 @@ button { font: inherit; }
 .projects-section-heading h2 {
   max-width: 780px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(38px, 4.7vw, 66px);
+  font-family: var(--font-display);
+  font-size: var(--heading-section-size);
   font-weight: 900;
-  line-height: .88;
+  line-height: .9;
   letter-spacing: -.03em;
   text-transform: uppercase;
 }
@@ -623,11 +657,11 @@ button { font: inherit; }
 }
 
 .project-trigger-title {
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  font-size: clamp(34px, 4.5vw, 62px);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: var(--heading-content-size);
+  font-weight: 900;
   line-height: .9;
-  letter-spacing: -.04em;
+  letter-spacing: -.03em;
   text-transform: uppercase;
   transition: color 220ms ease, translate 320ms cubic-bezier(.22, 1, .36, 1);
 }
@@ -838,8 +872,8 @@ button { font: inherit; }
   z-index: 1;
   max-width: 1040px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(54px, 7vw, 100px);
+  font-family: var(--font-display);
+  font-size: var(--heading-page-size);
   font-weight: 900;
   line-height: .86;
   letter-spacing: -.035em;
@@ -1037,10 +1071,10 @@ button { font: inherit; }
   z-index: 1;
   max-width: 1020px;
   margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(56px, 7.4vw, 106px);
+  font-family: var(--font-display);
+  font-size: var(--heading-page-size);
   font-weight: 900;
-  line-height: .84;
+  line-height: .86;
   letter-spacing: -.035em;
   text-transform: uppercase;
 }
@@ -1135,11 +1169,11 @@ button { font: inherit; }
 .profile-closing h2 {
   max-width: 800px;
   margin: 0;
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  font-size: clamp(39px, 5vw, 72px);
-  font-weight: 800;
-  line-height: .93;
-  letter-spacing: -.04em;
+  font-family: var(--font-display);
+  font-size: var(--heading-section-size);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: -.03em;
   text-transform: uppercase;
 }
 
@@ -1166,7 +1200,7 @@ button { font: inherit; }
 .profile-facts dd { margin: 16px 0 0; color: var(--ink); font-family: "Arial Narrow", Arial, sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; }
 
 .profile-closing { padding: clamp(78px, 10vw, 138px) clamp(24px, 7.4vw, 94px); border-bottom: 1px solid var(--rule); }
-.profile-closing h2 { max-width: 980px; font-size: clamp(44px, 6.2vw, 88px); }
+.profile-closing h2 { max-width: 980px; }
 .profile-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(40px, 5vw, 58px); }
 .profile-action {
   min-width: 224px;
@@ -1238,7 +1272,12 @@ button { font: inherit; }
 }
 
 @media (max-width: 560px) {
-  :root { --page-gutter: 0px; }
+  :root {
+    --page-gutter: 0px;
+    --heading-page-size: clamp(42px, 12.5vw, 60px);
+    --heading-section-size: clamp(34px, 10vw, 46px);
+    --heading-content-size: clamp(28px, 8.6vw, 40px);
+  }
   html { scroll-padding-top: 68px; }
   .site-header,
   .header-shell { height: 68px; }
@@ -1257,7 +1296,7 @@ button { font: inherit; }
 
   .hero-body { padding-block: clamp(46px, 8vh, 70px) 42px; }
   .hero-role { margin-bottom: 19px; font-size: 9px; }
-  .hero-title { font-size: clamp(28px, 9.2vw, 52px); line-height: .86; }
+  .hero-title { font-size: var(--heading-page-size); }
   .hero-title > span {
     width: 100%;
     white-space: normal;
@@ -1266,17 +1305,20 @@ button { font: inherit; }
   .hero-title-accent {
     font-size: .84em;
     margin-top: .22em;
-    -webkit-text-stroke-width: 1px;
+    color: var(--blue);
+    -webkit-text-stroke: 0;
+    text-shadow: none;
   }
   .hero-value { grid-template-columns: 6px 1fr; gap: 14px; margin-top: 30px; }
   .hero-value p { font-size: 16px; line-height: 1.46; }
   .hero-actions { flex-direction: column; margin-top: 30px; }
   .hero-action { width: 100%; min-width: 0; }
+  .hero-scroll-cue { bottom: max(14px, env(safe-area-inset-bottom)); }
 
   .experience-section { width: 100%; padding: 70px 16px 76px; border-inline: 0; }
   .experience-section-heading { margin-bottom: 40px; }
   .section-kicker { margin-bottom: 17px; font-size: 9px; }
-  .experience-section-heading h2 { font-size: clamp(32px, 9vw, 41px); }
+  .experience-section-heading h2 { font-size: var(--heading-section-size); }
   .experience-section-heading > p:last-child { padding-left: 14px; border-left-width: 5px; font-size: 16px; }
   .experience-detail { padding: 27px 20px 20px; }
   .experience-detail-heading {
@@ -1309,11 +1351,11 @@ button { font: inherit; }
 
   .projects-section { width: 100%; padding: 76px 16px 70px; border-inline: 0; }
   .projects-section-heading { margin-bottom: 38px; }
-  .projects-section-heading h2 { font-size: clamp(35px, 10.4vw, 46px); }
+  .projects-section-heading h2 { font-size: var(--heading-section-size); }
   .projects-section-heading > p:last-child { padding-left: 14px; border-left-width: 5px; font-size: 16px; }
   .project-trigger { min-height: 112px; grid-template-columns: 28px minmax(0, 1fr) 32px; gap: 10px; padding: 20px 8px; }
   .project-index { font-size: 8px; }
-  .project-trigger-title { font-size: clamp(29px, 8.6vw, 40px); }
+  .project-trigger-title { font-size: var(--heading-content-size); }
   .project-stack { font-size: 8px; }
   .project-toggle { width: 32px; height: 32px; }
   .project-panel-inner { gap: 24px; padding: 0 8px 34px 28px; }
@@ -1328,7 +1370,7 @@ button { font: inherit; }
   .projects-archive { width: 100%; margin-inline: 0; border-inline: 0; }
   .projects-archive-intro { min-height: calc(100svh - 68px); padding: 76px 16px 64px; }
   .projects-archive-count { top: 24px; right: 16px; }
-  .projects-archive-intro h1 { font-size: clamp(45px, 13.4vw, 64px); }
+  .projects-archive-intro h1 { font-size: var(--heading-page-size); }
   .projects-archive-copy { margin-left: 0; padding-left: 15px; border-left-width: 5px; font-size: 16px; }
   .projects-archive { padding: 68px 16px 76px; }
 
@@ -1348,20 +1390,20 @@ button { font: inherit; }
   .profile-closing { width: 100%; margin-inline: 0; border-inline: 0; }
   .profile-intro { min-height: calc(100svh - 68px); padding: 76px 16px 64px; }
   .profile-intro-index { top: 24px; right: 16px; }
-  .profile-intro h1 { font-size: clamp(47px, 14vw, 66px); }
+  .profile-intro h1 { font-size: var(--heading-page-size); }
   .profile-intro-copy { margin-left: 0; padding-left: 15px; border-left-width: 5px; font-size: 16px; }
   .profile-chapter-nav { top: 68px; }
   .profile-chapter-nav a { min-width: 138px; }
   .profile-chapter { min-height: auto; padding: 72px 16px; scroll-margin-top: 122px; }
   .profile-chapter-meta { grid-template-columns: 26px 1fr; gap: 10px; }
   .profile-placeholder-label { grid-column: 2; width: fit-content; }
-  .profile-chapter h2 { font-size: clamp(36px, 11vw, 48px); }
+  .profile-chapter h2 { font-size: var(--heading-section-size); }
   .profile-chapter-copy { margin-top: 32px; }
   .profile-facts { grid-template-columns: 1fr; }
   .profile-facts div { border-right: 0; border-bottom: 1px solid var(--rule); }
   .profile-facts div:last-child { border-bottom: 0; }
   .profile-closing { padding: 74px 16px; }
-  .profile-closing h2 { font-size: clamp(39px, 11.5vw, 55px); }
+  .profile-closing h2 { font-size: var(--heading-section-size); }
   .profile-actions { flex-direction: column; }
   .profile-action { width: 100%; }
 }
@@ -1371,6 +1413,7 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .hero-scroll-icon { animation: none; }
   .project-trigger-title { translate: none !important; }
   .project-panel,
   .project-row--active .project-panel { transition: none; }

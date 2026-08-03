@@ -11,6 +11,14 @@ function DownloadIcon() {
   );
 }
 
+function ScrollIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 30" className="hero-scroll-icon">
+      <path d="M12 2v23m0 0 7-7m-7 7-7-7" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main id="main-content">
@@ -36,6 +44,10 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        <a className="hero-scroll-cue" href="#experience" aria-label="Continue to experience">
+          <ScrollIcon />
+        </a>
       </section>
       <Experience />
       <Skills />
