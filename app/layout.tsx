@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hdshashank.dev"),
-  title: "Shashank H D — Software Engineer",
+  title: "Shashank H D | Software Engineer",
   description:
     "Software engineer who learns quickly, works from fundamentals, and turns unfamiliar problems into useful software.",
 };
@@ -13,6 +13,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}})()`,
