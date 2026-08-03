@@ -179,14 +179,15 @@ button { font: inherit; }
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid var(--rule);
+  padding: 0;
+  border: 0;
   color: var(--muted);
-  background: var(--raised);
+  background: transparent;
   cursor: pointer;
-  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+  transition: color 160ms ease;
 }
 
-.theme-control:hover { color: var(--ink); border-color: var(--blue); }
+.theme-control:hover { color: var(--blue); }
 
 /* Hero */
 .portfolio-hero {
@@ -220,7 +221,7 @@ button { font: inherit; }
   margin: 0;
   max-width: 1130px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", sans-serif;
-  font-size: clamp(61px, 7.4vw, 110px);
+  font-size: clamp(40px, 7.4vw, 110px);
   font-weight: 900;
   line-height: .79;
   letter-spacing: -.035em;
@@ -442,6 +443,7 @@ button { font: inherit; }
   letter-spacing: -.035em;
   text-transform: uppercase;
 }
+.experience-mobile-label { display: none; }
 .experience-date {
   margin: 3px 0 0;
   color: var(--muted);
@@ -636,7 +638,7 @@ button { font: inherit; }
 
 .project-stack {
   color: var(--muted);
-  font: 600 9px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 800 10px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
   letter-spacing: .08em;
   text-align: right;
   text-transform: uppercase;
@@ -1255,13 +1257,16 @@ button { font: inherit; }
 
   .hero-body { padding-block: clamp(46px, 8vh, 70px) 42px; }
   .hero-role { margin-bottom: 19px; font-size: 9px; }
-  .hero-title { font-size: clamp(43px, 12.8vw, 58px); line-height: .82; }
+  .hero-title { font-size: clamp(28px, 9.2vw, 52px); line-height: .86; }
+  .hero-title > span {
+    width: 100%;
+    white-space: normal;
+    text-wrap: balance;
+  }
   .hero-title-accent {
-    font-size: .78em;
+    font-size: .84em;
     margin-top: .22em;
     -webkit-text-stroke-width: 1px;
-    transform: scaleX(.88);
-    transform-origin: left;
   }
   .hero-value { grid-template-columns: 6px 1fr; gap: 14px; margin-top: 30px; }
   .hero-value p { font-size: 16px; line-height: 1.46; }
@@ -1274,7 +1279,21 @@ button { font: inherit; }
   .experience-section-heading h2 { font-size: clamp(32px, 9vw, 41px); }
   .experience-section-heading > p:last-child { padding-left: 14px; border-left-width: 5px; font-size: 16px; }
   .experience-detail { padding: 27px 20px 20px; }
-  .experience-detail-heading { display: grid; }
+  .experience-detail-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .experience-detail-heading > div { display: none; }
+  .experience-mobile-label {
+    display: block;
+    margin: 0;
+    color: var(--blue);
+    font: 700 9px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
   .experience-date { text-align: left; }
   .experience-summary { margin-block: 27px 34px; }
   .experience-groups { grid-template-columns: 1fr; }
@@ -1282,9 +1301,11 @@ button { font: inherit; }
   .experience-group:last-child { border-bottom: 0; }
   .experience-coming-soon { margin-top: 21px; }
 
-  .skills-section { width: 100%; padding-block: 52px; border-inline: 0; }
-  .logos22-slot { width: 50%; flex-basis: 50%; min-height: 112px; padding: 20px 12px; }
-  .logos22-name { font-size: 16px; }
+  .skills-section { width: 100%; padding-block: 32px; border-inline: 0; }
+  .logos22-slot { width: 50%; flex-basis: 50%; min-height: 78px; padding: 12px 8px; }
+  .logos22-lockup { gap: 7px; }
+  .logos22-lockup picture { width: 20px; height: 20px; }
+  .logos22-name { font-size: 14px; line-height: 1.15; }
 
   .projects-section { width: 100%; padding: 76px 16px 70px; border-inline: 0; }
   .projects-section-heading { margin-bottom: 38px; }
@@ -1320,14 +1341,6 @@ button { font: inherit; }
   .connect-socials { gap: 16px 22px; }
   .connect-hire { font-size: 30px; }
   .connect-direct p { font-size: 15px; }
-  .connect-wordmark {
-    display: block;
-    font-size: clamp(68px, 24vw, 116px);
-    line-height: .76;
-    text-align: center;
-    white-space: normal;
-  }
-  .connect-wordmark span { display: block; }
   .site-footer { min-height: 82px; margin-inline: 0; border-inline: 0; }
 
   .profile-intro,

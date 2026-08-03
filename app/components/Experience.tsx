@@ -5,12 +5,17 @@ import { experienceEntries, type ExperienceEntry } from "../content/experience";
 
 function ExperienceDetail({ entry }: { entry: ExperienceEntry }) {
   return (
-    <article className="experience-detail" aria-live="polite">
+    <article
+      className="experience-detail"
+      aria-label={`${entry.role} at ${entry.company}`}
+      aria-live="polite"
+    >
       <div className="experience-detail-heading">
         <div>
           <p className="experience-company">{entry.company}</p>
           <h3>{entry.role}</h3>
         </div>
+        <p className="experience-mobile-label">Role overview</p>
         <p className="experience-date">
           <time dateTime={entry.startDate}>{entry.displayDates}</time>
         </p>
