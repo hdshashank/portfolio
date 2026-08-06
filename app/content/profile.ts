@@ -58,7 +58,7 @@ export const profileChapters: ProfileChapter[] = [
       "It will stay current and specific: what I am learning now, why it matters, and the kinds of software engineering problems I want to take on next.",
     ],
     facts: [
-      { label: "Current", value: "BTP Platform Intern · Merck" },
+      { label: "Current", value: "Software Developer Intern · Merck" },
       { label: "Seeking", value: "Software engineering roles" },
     ],
     status: "placeholder",

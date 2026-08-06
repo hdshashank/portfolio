@@ -10,19 +10,11 @@ function ExperienceDetail({ entry }: { entry: ExperienceEntry }) {
       aria-label={`${entry.role} at ${entry.company}`}
       aria-live="polite"
     >
-      <div className="flex justify-between gap-7 max-[560px]:items-baseline max-[560px]:gap-4">
-        <div className="max-[560px]:hidden">
-          <p className="m-0 mb-[11px] font-mono text-[10px]/none font-bold tracking-[.12em] text-signal uppercase">
-            {entry.company}
-          </p>
-          <h3 className="m-0 [font-family:var(--font-display)] text-[length:var(--heading-content-size)] leading-[.9] font-black tracking-[-.03em] uppercase">
-            {entry.role}
-          </h3>
-        </div>
-        <p className="m-0 hidden font-mono text-[9px]/[1.3] font-bold tracking-[.11em] text-blue uppercase max-[560px]:block">
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="m-0 font-mono text-[9px]/[1.3] font-bold tracking-[.11em] text-blue uppercase">
           Role overview
         </p>
-        <p className="mt-[3px] mb-0 font-mono text-[10px]/[1.4] font-extrabold tracking-[.07em] text-muted uppercase max-[560px]:text-left min-[561px]:text-right">
+        <p className="mt-[3px] mb-0 text-right font-mono text-[10px]/[1.4] font-extrabold tracking-[.07em] text-muted uppercase">
           <time dateTime={entry.startDate}>{entry.displayDates}</time>
         </p>
       </div>

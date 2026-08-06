@@ -20,8 +20,8 @@ export interface ExperienceEntry {
 
 export const experienceEntries: ExperienceEntry[] = [
   {
-    id: "merck-btp-platform-intern",
-    role: "BTP Platform Intern",
+    id: "merck-software-developer-intern",
+    role: "Software Developer Intern",
     company: "Merck",
     startDate: "2025-09-17",
     displayDates: "September 17, 2025 — Present",
