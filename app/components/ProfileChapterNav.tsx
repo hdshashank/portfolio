@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ProfileChapter } from "../content/profile";
 
 export function ProfileChapterNav({ chapters }: { chapters: ProfileChapter[] }) {
   const [activeId, setActiveId] = useState(chapters[0]?.id ?? "");
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const sections = chapters
@@ -25,8 +26,35 @@ export function ProfileChapterNav({ chapters }: { chapters: ProfileChapter[] }) 
     return () => observer.disconnect();
   }, [chapters]);
 
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav || !window.matchMedia("(max-width: 880px)").matches) return;
+
+    const activeLink = nav.querySelector<HTMLAnchorElement>(
+      `a[href="#${CSS.escape(activeId)}"]`,
+    );
+    if (!activeLink) return;
+
+    const navRect = nav.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+    const linkIsVisible = linkRect.left >= navRect.left && linkRect.right <= navRect.right;
+
+    if (!linkIsVisible) {
+      const centeredLeft =
+        nav.scrollLeft + linkRect.left - navRect.left - (navRect.width - linkRect.width) / 2;
+
+      nav.scrollTo({
+        left: centeredLeft,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    }
+  }, [activeId]);
+
   return (
     <nav
+      ref={navRef}
       className="sticky top-[76px] max-h-[calc(100svh-76px)] self-start pt-[clamp(72px,8vw,112px)] pr-[clamp(30px,4vw,58px)] pb-[clamp(72px,8vw,112px)] max-[880px]:top-[76px] max-[880px]:z-10 max-[880px]:max-h-none max-[880px]:overflow-x-auto max-[880px]:border-b max-[880px]:border-rule max-[880px]:bg-header-glass max-[880px]:p-0 max-[880px]:backdrop-blur-[14px] max-[880px]:[scrollbar-width:none] max-[880px]:[&::-webkit-scrollbar]:hidden max-[560px]:top-[68px]"
       aria-label="Profile chapters"
     >
