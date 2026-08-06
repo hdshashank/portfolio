@@ -21,7 +21,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="theme-control group"
+      className="group inline-grid size-[42px] cursor-pointer place-items-center border-0 bg-transparent p-0 text-muted transition-colors duration-[160ms] hover:text-blue"
       type="button"
       role="switch"
       aria-checked={theme === "light"}

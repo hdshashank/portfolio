@@ -22,7 +22,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
-        <a className="skip-link" href="#main-content">Skip to content</a>
+        <a
+          className="fixed top-3 left-3 z-[100] -translate-y-[160%] bg-blue-solid px-3.5 py-2.5 font-mono text-[11px]/none font-bold tracking-[.08em] text-white uppercase transition-transform duration-[160ms] ease-out focus:translate-y-0"
+          href="#main-content"
+        >
+          Skip to content
+        </a>
         <Header />
         {children}
       </body>

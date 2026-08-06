@@ -46,13 +46,16 @@ function iconSource(icon: SimpleIcon) {
 const logos: LogosDoubleRowStaticLogo[] = skills.map((skill) => ({
   src: iconSource(skill.icon),
   alt: skill.name,
-  className: "skills-logo-image",
 }));
 
 export function Skills() {
   return (
-    <section className="skills-section" id="skills" aria-labelledby="skills-title">
-      <h2 className="visually-hidden" id="skills-title">Skills and tools</h2>
+    <section
+      className="mx-[var(--page-gutter)] w-auto border-x border-b border-rule bg-paper py-[clamp(64px,7vw,88px)] max-[560px]:mx-0 max-[560px]:w-full max-[560px]:border-x-0 max-[560px]:py-8"
+      id="skills"
+      aria-labelledby="skills-title"
+    >
+      <h2 className="sr-only" id="skills-title">Skills and tools</h2>
       <Logos22 topRow={logos.slice(0, 6)} bottomRow={logos.slice(6)} />
     </section>
   );
