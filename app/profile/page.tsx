@@ -30,9 +30,6 @@ export default function ProfilePage() {
         <p className="mt-0 mb-7 font-mono text-[10px]/[1.3] font-bold tracking-[.13em] text-blue uppercase">
           Profile · The person behind the work
         </p>
-        <p className="absolute top-[clamp(34px,5vw,64px)] right-[clamp(24px,7.4vw,94px)] m-0 font-mono text-[10px]/none font-bold tracking-[.12em] text-signal max-[560px]:top-6 max-[560px]:right-4" aria-hidden="true">
-          01—05
-        </p>
         <h1 className="relative z-[1] m-0 max-w-[1020px] [font-family:var(--font-display)] text-[length:var(--heading-page-size)] leading-[.86] font-black tracking-[-.035em] uppercase">
           Learning is how I turn uncertainty into useful work.
         </h1>
@@ -54,12 +51,8 @@ export default function ProfilePage() {
               key={chapter.id}
               aria-labelledby={`${chapter.id}-title`}
             >
-              <div className="mb-[clamp(32px,5vw,56px)] grid grid-cols-[34px_1fr_auto] items-center gap-[18px] font-mono text-[9px]/[1.2] font-bold tracking-[.11em] text-blue uppercase max-[560px]:grid-cols-[26px_1fr] max-[560px]:gap-2.5">
-                <span className="text-signal">{String(index + 1).padStart(2, "0")}</span>
+              <div className="mb-[clamp(32px,5vw,56px)] font-mono text-[10px]/[1.2] font-bold tracking-[.11em] text-blue uppercase max-[560px]:grid-cols-[26px_1fr] max-[560px]:gap-2.5">
                 <span>{chapter.eyebrow}</span>
-                <span className="border border-dashed border-rule px-[9px] py-[7px] text-muted max-[560px]:col-start-2 max-[560px]:w-fit">
-                  Narrative in progress
-                </span>
               </div>
               <h2 className="m-0 max-w-[800px] [font-family:var(--font-display)] text-[length:var(--heading-section-size)] leading-[.9] font-black tracking-[-.03em] uppercase" id={`${chapter.id}-title`}>
                 {chapter.title}
