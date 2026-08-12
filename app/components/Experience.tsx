@@ -1,7 +1,21 @@
 "use client";
 
+import { ArrowRight, Database, GitBranch, RefreshCw, UsersRound, Zap } from "lucide-react";
 import { useState } from "react";
-import { experienceEntries, type ExperienceEntry } from "../content/experience";
+import {
+  experienceEntries,
+  type ExperienceContributionIcon,
+  type ExperienceEntry,
+} from "../content/experience";
+
+const contributionIcons = {
+  automation: Zap,
+  collaboration: UsersRound,
+  reliability: RefreshCw,
+  database: Database,
+  pipeline: GitBranch,
+  release: ArrowRight,
+} satisfies Record<ExperienceContributionIcon, typeof Zap>;
 
 function ExperienceDetail({ entry }: { entry: ExperienceEntry }) {
   return (
@@ -11,45 +25,33 @@ function ExperienceDetail({ entry }: { entry: ExperienceEntry }) {
       aria-live="polite"
     >
       <div className="flex items-baseline justify-between gap-4">
-        <p className="m-0 font-mono text-[9px]/[1.3] font-bold tracking-[.11em] text-blue uppercase">
+        <p className="m-0 font-mono text-[11px]/[1.3] font-bold tracking-[.11em] text-blue uppercase">
           Role overview
         </p>
-        <p className="mt-[3px] mb-0 text-right font-mono text-[10px]/[1.4] font-extrabold tracking-[.07em] text-muted uppercase">
+        <p className="mt-[3px] mb-0 text-right font-mono text-[11px]/[1.4] font-extrabold tracking-[.07em] text-muted uppercase">
           <time dateTime={entry.startDate}>{entry.displayDates}</time>
         </p>
       </div>
 
-      <p className="mt-[clamp(28px,4vw,42px)] mb-[clamp(36px,5vw,56px)] max-w-[680px] [font-family:Georgia,'Times_New_Roman',serif] text-[clamp(17px,1.6vw,21px)] leading-[1.55] text-muted max-[560px]:mt-[27px] max-[560px]:mb-[34px]">
+      <p className="mt-[clamp(28px,4vw,42px)] mb-[clamp(36px,5vw,56px)] max-w-[680px] [font-family:Georgia,'Times_New_Roman',serif] text-[clamp(18px,1.6vw,21px)] leading-[1.55] text-muted max-[560px]:mt-[27px] max-[560px]:mb-[34px]">
         {entry.summary}
       </p>
 
-      <div
-        className="mt-auto grid grid-cols-3 border border-dashed border-rule max-[560px]:grid-cols-1"
-        aria-label={`${entry.role} details`}
-      >
-        {entry.detailGroups.map((group) => (
-          <section
-            className="min-h-[126px] border-r border-dashed border-rule p-[18px] last:border-r-0 max-[560px]:min-h-[100px] max-[560px]:border-r-0 max-[560px]:border-b max-[560px]:last:border-b-0"
-            key={group.label}
-          >
-            <div className="flex items-center justify-between gap-3 font-mono text-[9px]/[1.2] font-bold tracking-[.1em] text-ink uppercase">
-              <span>{group.label}</span>
-              {group.status === "placeholder" && (
-                <span className="size-1.5 shrink-0 bg-signal" />
-              )}
-            </div>
-            {group.status === "placeholder" ? (
-              <p className="mt-[30px] mb-0 [font-family:Georgia,'Times_New_Roman',serif] text-sm/[1.4] italic text-muted max-[560px]:mt-[21px]">
-                Details coming soon
-              </p>
-            ) : (
-              <ul className="mt-5 mb-0 pl-[18px] text-sm/[1.5] text-muted">
-                {group.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-            )}
-          </section>
-        ))}
-      </div>
+      <ul className="mt-auto m-0 list-none border-t border-rule p-0" aria-label={`${entry.role} contributions`}>
+        {entry.contributions.map((contribution) => {
+          const Icon = contributionIcons[contribution.icon];
+
+          return (
+            <li
+              className="grid grid-cols-[18px_1fr] items-start gap-3 border-b border-rule py-[14px] text-[15px]/[1.55] text-ink last:border-b-0 max-[560px]:py-3 max-[560px]:text-sm"
+              key={contribution.text}
+            >
+              <Icon aria-hidden="true" className="mt-[3px] size-4 text-blue" strokeWidth={1.8} />
+              <span>{contribution.text}</span>
+            </li>
+          );
+        })}
+      </ul>
     </article>
   );
 }
@@ -76,7 +78,7 @@ export function Experience() {
         >
           The work, decisions, and growth behind each role.
         </h2>
-        <p className="m-0 border-l-[6px] border-signal pl-5 [font-family:Georgia,'Times_New_Roman',serif] text-[17px]/[1.55] text-muted max-[880px]:mt-7 max-[880px]:max-w-[500px] max-[560px]:border-l-[5px] max-[560px]:pl-[14px] max-[560px]:text-base">
+        <p className="m-0 border-l-[6px] border-signal pl-5 [font-family:Georgia,'Times_New_Roman',serif] text-[18px]/[1.55] text-muted max-[880px]:mt-7 max-[880px]:max-w-[500px] max-[560px]:border-l-[5px] max-[560px]:pl-[14px] max-[560px]:text-base">
           Explore each role through its responsibilities, contributions, and outcomes.
         </p>
       </header>
@@ -108,7 +110,7 @@ export function Experience() {
                   <strong className="[font-family:Arial_Narrow,Roboto_Condensed,Arial,sans-serif] text-[19px]/[1.05] tracking-[-.02em] uppercase">
                     {entry.role}
                   </strong>
-                  <span className="font-mono text-[10px]/none font-semibold tracking-[.1em] text-muted uppercase">
+                  <span className="font-mono text-[11px]/none font-bold tracking-[.1em] text-muted uppercase">
                     {entry.company}
                   </span>
                 </span>

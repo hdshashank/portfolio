@@ -1,9 +1,14 @@
-export type ContentStatus = "ready" | "placeholder";
+export type ExperienceContributionIcon =
+  | "automation"
+  | "collaboration"
+  | "reliability"
+  | "database"
+  | "pipeline"
+  | "release";
 
-export interface ExperienceDetailGroup {
-  label: string;
-  points: string[];
-  status: ContentStatus;
+export interface ExperienceContribution {
+  icon: ExperienceContributionIcon;
+  text: string;
 }
 
 export interface ExperienceEntry {
@@ -15,7 +20,7 @@ export interface ExperienceEntry {
   endDate?: string;
   displayDates: string;
   summary: string;
-  detailGroups: ExperienceDetailGroup[];
+  contributions: ExperienceContribution[];
 }
 
 export const experienceEntries: ExperienceEntry[] = [
@@ -26,11 +31,32 @@ export const experienceEntries: ExperienceEntry[] = [
     startDate: "2025-09-17",
     displayDates: "September 17, 2025 — Present",
     summary:
-      "Developing practical knowledge of SAP Business Technology Platform administration and the foundations that support enterprise cloud environments.",
-    detailGroups: [
-      { label: "Platform work", points: [], status: "placeholder" },
-      { label: "Responsibilities", points: [], status: "placeholder" },
-      { label: "Outcomes", points: [], status: "placeholder" },
+      "Built and shipped an internal automation tool that cut manual provisioning time by 97 percent, while supporting SAP BTP platform operations across CI/CD, releases, and governance.",
+    contributions: [
+      {
+        icon: "automation",
+        text: "Built an automated bulk-provisioning tool with Node.js, Express, and the SAP SCIM API.",
+      },
+      {
+        icon: "collaboration",
+        text: "Coordinated across multiple teams to unify fragmented, per-subaccount credential access.",
+      },
+      {
+        icon: "reliability",
+        text: "Fixed intermittent SCIM rate-limit failures with concurrent retry logic.",
+      },
+      {
+        icon: "database",
+        text: "Designed the SAP HANA schema powering full audit-trail logging.",
+      },
+      {
+        icon: "pipeline",
+        text: "Built CI/CD pipelines for multiple enterprise applications.",
+      },
+      {
+        icon: "release",
+        text: "Executed transports across the release lifecycle: development, staging, and production.",
+      },
     ],
   },
 ];
