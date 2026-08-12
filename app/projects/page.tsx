@@ -15,9 +15,6 @@ export default function ProjectsPage() {
         <p className="col-span-full m-0 mb-[22px] font-mono text-[10px]/[1.3] font-bold tracking-[.13em] text-blue uppercase max-[560px]:mb-[17px] max-[560px]:text-[9px]">
           All projects · Complete archive
         </p>
-        <p className="absolute top-[clamp(34px,5vw,64px)] right-[clamp(24px,7.4vw,94px)] m-0 font-mono text-[10px]/none font-bold tracking-[.12em] text-signal uppercase max-[560px]:top-6 max-[560px]:right-4">
-          {String(allProjects.length).padStart(2, "0")} builds
-        </p>
         <h1 className="relative z-[1] m-0 max-w-[1040px] [font-family:var(--font-display)] text-[length:var(--heading-page-size)] leading-[.86] font-black tracking-[-.035em] uppercase">
           Work shaped by curiosity, constraints, and the need to make things useful.
         </h1>

@@ -90,7 +90,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
         if (event.key === "Escape") setSelectedId(null);
       }}
     >
-      {projects.map((project, index) => {
+      {projects.map((project) => {
         const isActive = project.id === selectedId;
         const panelId = `${project.id}-details`;
 
@@ -103,15 +103,12 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
             key={project.id}
           >
             <button
-              className="grid min-h-[clamp(112px,11vw,150px)] w-full cursor-pointer grid-cols-[48px_minmax(240px,1fr)_minmax(190px,auto)_34px] items-center gap-5 border-0 bg-transparent pt-6 pr-6 pb-6 pl-7 text-left text-inherit max-[880px]:grid-cols-[42px_minmax(0,1fr)_34px] max-[560px]:min-h-28 max-[560px]:grid-cols-[28px_minmax(0,1fr)_32px] max-[560px]:gap-2.5 max-[560px]:px-2 max-[560px]:py-5"
+              className="grid min-h-[clamp(112px,11vw,150px)] w-full cursor-pointer grid-cols-[minmax(240px,1fr)_minmax(190px,auto)_34px] items-center gap-5 border-0 bg-transparent pt-6 pr-6 pb-6 pl-7 text-left text-inherit max-[880px]:grid-cols-[minmax(0,1fr)_34px] max-[560px]:min-h-28 max-[560px]:grid-cols-[minmax(0,1fr)_32px] max-[560px]:gap-2.5 max-[560px]:px-2 max-[560px]:py-5"
               type="button"
               aria-expanded={isActive}
               aria-controls={panelId}
               onClick={() => setSelectedId(isActive ? null : project.id)}
             >
-              <span className="self-start pt-[7px] font-mono text-[9px]/none font-bold tracking-[.09em] text-signal max-[560px]:text-[8px]">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               <span
                 className={cn(
                   "[font-family:var(--font-display)] text-[length:var(--heading-content-size)] leading-[.9] font-black tracking-[-.03em] uppercase transition-[color,transform] duration-[220ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] group-hover:translate-x-0.5 group-hover:text-blue group-has-[:focus-visible]:translate-x-0.5 group-has-[:focus-visible]:text-blue motion-reduce:transform-none",
@@ -120,12 +117,12 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
               >
                 {project.title}
               </span>
-              <span className="text-right font-mono text-[10px]/[1.6] font-extrabold tracking-[.08em] text-muted uppercase max-[880px]:col-start-2 max-[880px]:row-start-2 max-[880px]:text-left max-[560px]:text-[8px]">
+              <span className="text-right font-mono text-[10px]/[1.6] font-extrabold tracking-[.08em] text-muted uppercase max-[880px]:col-start-1 max-[880px]:row-start-2 max-[880px]:text-left max-[560px]:text-[8px]">
                 {project.stack.join(" · ")}
               </span>
               <span
                 className={cn(
-                  "grid size-[34px] place-items-center border border-rule [font-family:Arial,sans-serif] text-[23px]/none font-light text-blue transition-colors duration-[220ms] max-[880px]:col-start-3 max-[880px]:row-span-2 max-[880px]:row-start-1 max-[560px]:size-8",
+                  "grid size-[34px] place-items-center border border-rule [font-family:Arial,sans-serif] text-[23px]/none font-light text-blue transition-colors duration-[220ms] max-[880px]:col-start-2 max-[880px]:row-span-2 max-[880px]:row-start-1 max-[560px]:size-8",
                   isActive && "border-signal bg-signal text-paper",
                 )}
                 aria-hidden="true"
@@ -146,7 +143,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
               <div className="min-h-0 overflow-hidden">
                 <div
                   className={cn(
-                    "grid min-h-0 translate-y-2.5 grid-cols-[minmax(0,1.05fr)_minmax(320px,.95fr)] gap-[clamp(30px,4vw,58px)] pt-0 pr-[clamp(24px,3vw,42px)] pb-[clamp(34px,4vw,52px)] pl-[76px] opacity-0 transition-[opacity,transform] duration-[260ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none max-[880px]:grid-cols-1 max-[880px]:pl-[70px] max-[560px]:gap-6 max-[560px]:pt-0 max-[560px]:pr-2 max-[560px]:pb-[34px] max-[560px]:pl-7",
+                    "grid min-h-0 translate-y-2.5 grid-cols-[minmax(0,1.05fr)_minmax(320px,.95fr)] gap-[clamp(30px,4vw,58px)] pt-0 pr-[clamp(24px,3vw,42px)] pb-[clamp(34px,4vw,52px)] pl-7 opacity-0 transition-[opacity,transform] duration-[260ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none max-[880px]:grid-cols-1 max-[560px]:gap-6 max-[560px]:pt-0 max-[560px]:pr-2 max-[560px]:pb-[34px] max-[560px]:pl-2",
                     isActive && "translate-y-0 opacity-100 delay-90",
                   )}
                 >
