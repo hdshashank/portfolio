@@ -51,7 +51,7 @@ const logos: LogosDoubleRowStaticLogo[] = skills.map((skill) => ({
 export function Skills() {
   return (
     <section
-      className="mx-[var(--page-gutter)] w-auto border-x border-b border-rule bg-paper py-[clamp(64px,7vw,88px)] max-[560px]:mx-0 max-[560px]:w-full max-[560px]:border-x-0 max-[560px]:py-8"
+      className="mx-[var(--page-gutter)] w-auto border-x border-b border-rule bg-paper max-[560px]:mx-0 max-[560px]:w-full max-[560px]:border-x-0 max-[560px]:py-8"
       id="skills"
       aria-labelledby="skills-title"
     >

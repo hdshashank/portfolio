@@ -29,9 +29,9 @@ export const experienceEntries: ExperienceEntry[] = [
     role: "Software Developer Intern",
     company: "Merck",
     startDate: "2025-09-17",
-    displayDates: "September 17, 2025 — Present",
+    displayDates: "September 2025 — Present",
     summary:
-      "Built and shipped an internal automation tool that cut manual provisioning time by 97 percent, while supporting SAP BTP platform operations across CI/CD, releases, and governance.",
+      "Built and shipped an internal automation tool that cut manual provisioning time by 97%, while supporting SAP BTP platform operations across CI/CD, releases, and governance.",
     contributions: [
       {
         icon: "automation",

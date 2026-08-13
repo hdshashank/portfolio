@@ -93,7 +93,7 @@ export function Experience() {
             const isSelected = entry.id === selectedId;
             return (
               <button
-                className="relative grid min-h-[116px] w-full cursor-pointer grid-cols-[34px_1fr_20px] items-center gap-3 border-0 border-b border-rule bg-transparent p-5 text-left text-muted transition-colors duration-[160ms] before:absolute before:inset-y-0 before:left-0 before:w-1 before:origin-bottom before:scale-y-0 before:bg-blue before:transition-transform before:duration-[180ms] hover:bg-raised hover:text-ink hover:before:scale-y-100 focus-visible:bg-raised focus-visible:text-ink focus-visible:before:scale-y-100 aria-pressed:bg-raised aria-pressed:text-ink aria-pressed:before:scale-y-100 max-[880px]:min-h-[92px]"
+                className="relative  min-h-[116px] w-full cursor-pointer flex items-center border-0 border-b border-rule bg-transparent p-8 text-left text-muted transition-colors duration-[160ms] before:absolute before:inset-y-0 before:left-0 before:w-1 before:origin-bottom before:scale-y-0 before:bg-blue before:transition-transform before:duration-[180ms] hover:bg-raised hover:text-ink hover:before:scale-y-100 focus-visible:bg-raised focus-visible:text-ink focus-visible:before:scale-y-100 aria-pressed:bg-raised aria-pressed:text-ink aria-pressed:before:scale-y-100 max-[880px]:min-h-[92px]"
                 key={entry.id}
                 type="button"
                 aria-pressed={isSelected}
@@ -103,9 +103,6 @@ export function Experience() {
                 onFocus={() => setPreviewId(entry.id)}
                 onBlur={() => setPreviewId(null)}
               >
-                <span className="self-start pt-[3px] font-mono text-[9px]/none font-bold tracking-[.08em] text-signal">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <span className="grid gap-2">
                   <strong className="[font-family:Arial_Narrow,Roboto_Condensed,Arial,sans-serif] text-[19px]/[1.05] tracking-[-.02em] uppercase">
                     {entry.role}
