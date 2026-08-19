@@ -85,7 +85,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
   return (
     <div
       ref={listRef}
-      className="border-t border-rule"
+      className="min-w-0 max-w-full border-t border-rule"
       onKeyDown={(event) => {
         if (event.key === "Escape") setSelectedId(null);
       }}
@@ -97,13 +97,13 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
         return (
           <article
             className={cn(
-              "group relative border-b border-rule bg-paper transition-colors duration-[180ms] before:absolute before:inset-y-0 before:left-0 before:z-[1] before:w-[5px] before:origin-top before:scale-y-0 before:bg-blue before:transition-transform before:duration-[220ms] hover:bg-raised hover:before:scale-y-100 has-[:focus-visible]:bg-raised has-[:focus-visible]:before:scale-y-100",
+              "group relative min-w-0 border-b border-rule bg-paper transition-colors duration-[180ms] before:absolute before:inset-y-0 before:left-0 before:z-[1] before:w-[5px] before:origin-top before:scale-y-0 before:bg-blue before:transition-transform before:duration-[220ms] hover:bg-raised hover:before:scale-y-100 has-[:focus-visible]:bg-raised has-[:focus-visible]:before:scale-y-100",
               isActive && "bg-raised before:scale-y-100",
             )}
             key={project.id}
           >
             <button
-              className="grid min-h-[clamp(112px,11vw,150px)] w-full cursor-pointer grid-cols-[minmax(240px,1fr)_minmax(190px,auto)_34px] items-center gap-5 border-0 bg-transparent pt-6 pr-6 pb-6 pl-7 text-left text-inherit max-[880px]:grid-cols-[minmax(0,1fr)_34px] max-[560px]:min-h-28 max-[560px]:grid-cols-[minmax(0,1fr)_32px] max-[560px]:gap-2.5 max-[560px]:px-2 max-[560px]:py-5"
+              className="grid min-h-[clamp(112px,11vw,150px)] min-w-0 w-full max-w-full cursor-pointer grid-cols-[minmax(240px,1fr)_minmax(190px,auto)_34px] items-center gap-5 border-0 bg-transparent pt-6 pr-6 pb-6 pl-7 text-left text-inherit max-[1101px]:grid-cols-[minmax(0,1fr)_34px] max-[560px]:min-h-28 max-[560px]:grid-cols-[minmax(0,1fr)_32px] max-[560px]:gap-2.5 max-[560px]:px-2 max-[560px]:py-5"
               type="button"
               aria-expanded={isActive}
               aria-controls={panelId}
@@ -111,18 +111,18 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
             >
               <span
                 className={cn(
-                  "[font-family:var(--font-display)] text-[length:var(--heading-content-size)] leading-[.9] font-black tracking-[-.03em] uppercase transition-[color,transform] duration-[220ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] group-hover:translate-x-0.5 group-hover:text-blue group-has-[:focus-visible]:translate-x-0.5 group-has-[:focus-visible]:text-blue motion-reduce:transform-none",
+                  "min-w-0 [overflow-wrap:anywhere] [font-family:var(--font-display)] text-[length:var(--heading-content-size)] leading-[.9] font-black tracking-[-.03em] uppercase transition-[color,transform] duration-[220ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] group-hover:translate-x-0.5 group-hover:text-blue group-has-[:focus-visible]:translate-x-0.5 group-has-[:focus-visible]:text-blue motion-reduce:transform-none",
                   isActive && "translate-x-0.5 text-blue",
                 )}
               >
                 {project.title}
               </span>
-              <span className="text-right font-mono text-[10px]/[1.6] font-extrabold tracking-[.08em] text-muted uppercase max-[880px]:col-start-1 max-[880px]:row-start-2 max-[880px]:text-left max-[560px]:text-[8px]">
+              <span className="min-w-0 text-right font-mono text-[10px]/[1.6] font-extrabold tracking-[.08em] text-muted uppercase [overflow-wrap:anywhere] max-[1101px]:col-start-1 max-[1101px]:row-start-2 max-[1101px]:text-left max-[560px]:text-[8px]">
                 {project.stack.join(" · ")}
               </span>
               <span
                 className={cn(
-                  "grid size-[34px] place-items-center border border-rule [font-family:Arial,sans-serif] text-[23px]/none font-light text-blue transition-colors duration-[220ms] max-[880px]:col-start-2 max-[880px]:row-span-2 max-[880px]:row-start-1 max-[560px]:size-8",
+                  "grid size-[34px] place-items-center border border-rule [font-family:Arial,sans-serif] text-[23px]/none font-light text-blue transition-colors duration-[220ms] max-[1101px]:col-start-2 max-[1101px]:row-span-2 max-[1101px]:row-start-1 max-[560px]:size-8",
                   isActive && "border-signal bg-signal text-paper",
                 )}
                 aria-hidden="true"
@@ -158,7 +158,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
                     </div>
                     <div className="mt-auto flex flex-wrap gap-[9px] pt-[30px]">
                       <a
-                        className="group inline-flex min-h-12 items-center justify-between gap-6 border border-blue-solid bg-blue-solid px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-white uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)]"
+                        className="group inline-flex min-h-12 max-w-full items-center justify-between gap-6 border border-blue-solid bg-blue-solid px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-white uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)]"
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
@@ -167,7 +167,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
                       </a>
                       {project.liveUrl && (
                         <a
-                          className="group inline-flex min-h-12 items-center justify-between gap-6 border border-rule px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-ink uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)]"
+                          className="group inline-flex min-h-12 max-w-full items-center justify-between gap-6 border border-rule px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-ink uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)]"
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer"
@@ -177,7 +177,7 @@ export function ProjectRows({ projects }: { projects: Project[] }) {
                       )}
                       {!project.liveUrl && project.liveUrlPending && (
                         <button
-                          className="inline-flex min-h-12 cursor-not-allowed items-center justify-between gap-6 border border-dashed border-rule bg-transparent px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-muted uppercase"
+                          className="inline-flex min-h-12 max-w-full cursor-not-allowed items-center justify-between gap-6 border border-dashed border-rule bg-transparent px-[15px] py-[13px] font-mono text-[9px]/none font-bold tracking-[.09em] text-muted uppercase"
                           type="button"
                           disabled
                         >

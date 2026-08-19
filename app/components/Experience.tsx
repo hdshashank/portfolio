@@ -64,26 +64,26 @@ export function Experience() {
 
   return (
     <section
-      className="mx-[var(--page-gutter)] w-auto border-x border-b border-rule bg-paper px-[clamp(24px,5.8vw,74px)] pt-[clamp(76px,9vw,124px)] pb-[clamp(82px,10vw,138px)] max-[560px]:mx-0 max-[560px]:w-full max-[560px]:border-x-0 max-[560px]:px-4 max-[560px]:pt-[70px] max-[560px]:pb-[76px]"
+      className="mx-[var(--page-gutter)] min-w-0 w-auto border-x border-b border-rule bg-paper px-[clamp(24px,5.8vw,74px)] pt-[clamp(76px,9vw,124px)] pb-[clamp(82px,10vw,138px)] max-[560px]:mx-0 max-[560px]:w-full max-[560px]:border-x-0 max-[560px]:px-4 max-[560px]:pt-[70px] max-[560px]:pb-[76px]"
       id="experience"
       aria-labelledby="experience-title"
     >
-      <header className="mb-[clamp(42px,5vw,62px)] grid grid-cols-[minmax(0,1fr)_minmax(250px,390px)] items-end gap-x-[42px] max-[880px]:grid-cols-1 max-[560px]:mb-10">
+      <header className="mb-[clamp(42px,5vw,62px)] grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(250px,390px)] items-end gap-x-[42px] max-[1101px]:grid-cols-1 max-[560px]:mb-10">
         <p className="col-span-full m-0 mb-[22px] font-mono text-[10px]/[1.3] font-bold tracking-[.13em] text-blue uppercase max-[560px]:mb-[17px] max-[560px]:text-[9px]">
           Experience · Current chapter
         </p>
         <h2
           id="experience-title"
-          className="m-0 max-w-[760px] [font-family:var(--font-display)] text-[length:var(--heading-section-size)] leading-[.9] font-black tracking-[-.03em] uppercase"
+          className="m-0 min-w-0 max-w-[760px] [font-family:var(--font-display)] text-[length:var(--heading-section-size)] leading-[.9] font-black tracking-[-.03em] uppercase [overflow-wrap:anywhere]"
         >
           The work, decisions, and growth behind each role.
         </h2>
-        <p className="m-0 border-l-[6px] border-signal pl-5 [font-family:Georgia,'Times_New_Roman',serif] text-[18px]/[1.55] text-muted max-[880px]:mt-7 max-[880px]:max-w-[500px] max-[560px]:border-l-[5px] max-[560px]:pl-[14px] max-[560px]:text-base">
+        <p className="m-0 min-w-0 border-l-[6px] border-signal pl-5 [font-family:Georgia,'Times_New_Roman',serif] text-[18px]/[1.55] text-muted [overflow-wrap:anywhere] max-[1101px]:mt-7 max-[1101px]:max-w-[500px] max-[560px]:border-l-[5px] max-[560px]:pl-[14px] max-[560px]:text-base">
           Explore each role through its responsibilities, contributions, and outcomes.
         </p>
       </header>
 
-      <div className="grid min-h-[470px] grid-cols-[minmax(250px,.72fr)_minmax(0,1.65fr)] border border-rule bg-[color-mix(in_srgb,var(--raised)_48%,transparent)] max-[880px]:grid-cols-1">
+      <div className="grid min-h-[470px] min-w-0 max-w-full grid-cols-[minmax(250px,.72fr)_minmax(0,1.65fr)] border border-rule bg-[color-mix(in_srgb,var(--raised)_48%,transparent)] max-[880px]:grid-cols-1">
         <div
           className="border-r border-rule max-[880px]:border-r-0 max-[880px]:border-b"
           role="group"
