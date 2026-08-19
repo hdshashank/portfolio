@@ -96,7 +96,7 @@ export default function ProfilePage() {
           Let&apos;s turn the next unfamiliar problem into useful software.
         </h2>
         <div className="mt-[clamp(40px,5vw,58px)] flex flex-wrap gap-2.5 max-[560px]:flex-col">
-          <a className="group inline-flex min-h-[52px] min-w-56 items-center justify-between gap-7 border border-blue-solid bg-blue-solid px-4 py-3.5 font-mono text-[10px]/none font-bold tracking-[.09em] text-white uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)] max-[560px]:w-full" href="/resume.pdf" download>
+          <a className="group inline-flex min-h-[52px] min-w-56 items-center justify-between gap-7 border border-blue-solid bg-blue-solid px-4 py-3.5 font-mono text-[10px]/none font-bold tracking-[.09em] text-white uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)] max-[560px]:w-full" href="/shashank_hd_resume.pdf" download>
             Download résumé <ActionArrow download />
           </a>
           <a className="group inline-flex min-h-[52px] min-w-56 items-center justify-between gap-7 border border-rule bg-raised px-4 py-3.5 font-mono text-[10px]/none font-bold tracking-[.09em] uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[4px_4px_0_var(--rule)] max-[560px]:w-full" href={emailHref}>

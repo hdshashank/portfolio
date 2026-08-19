@@ -33,7 +33,7 @@ Content is separated from presentation where it benefits from structured updates
 - `app/content/profile.ts` — profile chapters and supporting facts
 - `app/components/Skills.tsx` — displayed skills and tools
 - `app/components/Connect.tsx` — social and contact links
-- `public/resume.pdf` — résumé served by the download actions
+- `public/shashank_hd_resume.pdf` — résumé served by the download actions
 
 The main routes are:
 

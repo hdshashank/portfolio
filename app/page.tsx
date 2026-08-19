@@ -60,7 +60,7 @@ export default function Home() {
           <div className="mt-[clamp(30px,4vw,48px)] flex flex-wrap gap-2.5 max-[560px]:mt-[30px] max-[560px]:flex-col">
             <a
               className="group inline-flex min-h-[50px] min-w-[216px] items-center justify-between gap-[30px] border border-blue-solid bg-blue-solid px-4 py-3.5 font-mono text-[10px]/none font-bold tracking-[.08em] text-white uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-blue hover:bg-transparent hover:text-ink hover:shadow-[5px_5px_0_var(--rule)] max-[560px]:w-full max-[560px]:min-w-0"
-              href="/resume.pdf"
+              href="/shashank_hd_resume.pdf"
               download
             >
               <span>Download résumé</span>
